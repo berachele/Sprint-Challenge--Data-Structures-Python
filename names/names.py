@@ -11,7 +11,6 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
-names = []
 
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
@@ -24,6 +23,8 @@ class BSTNode:
         self.value = value
         self.left = None
         self.right = None
+    def __str__(self):
+        print(f'{self.value}')
 
     # Insert the given value into the tree
     def insert(self, value):
@@ -43,12 +44,7 @@ class BSTNode:
                 self.right.insert(value)
             else:
                 self.right = BSTNode(value)
-    # def for_each(self, fn):
-        fn(self.value)
-        if self.left:
-            self.left.for_each(fn)
-        if self.right:
-            self.right.for_each(fn)
+
     def contains(self, target):
         if target == self.value:
             return True
@@ -63,14 +59,20 @@ class BSTNode:
             else:
                 return False
 
+#hahaha record of hitting in 46 seconds 🙈
+
+bst = BSTNode(names_1[0])
+# print(bst)
 for name in names_1:
-    BSTNode(name)
-# for name in names_2:  
-#     names.append(name)
-for name in names:
-    bst = BSTNode(name)
-    if bst.contains(name):
+    bst.insert(name)
+
+for name2 in names_2:
+    if bst.contains(name2):
+        print('HITTING if')
         duplicates.append(name)
+
+# for name in names_2:
+#     if bst.contains(name):
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
