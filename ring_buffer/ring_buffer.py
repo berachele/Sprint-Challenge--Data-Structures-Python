@@ -3,16 +3,16 @@ class RingBuffer:
         self.capacity = capacity
         self.storage = []
         self.size = 0
-        self.head = None
-        self.tail = None
+        self.oldest = len(self.storage)-len(self.storage)
 
     def append(self, item):
-        if self.size is self.capacity:
+        if self.size == self.capacity:
             print("TRIGGERING IF")
-            oldest = self.head
-            self.storage.pop(0)
-            self.storage.insert(0, item)
-            oldest += 1
+            print(self.oldest)
+            self.storage.pop(self.oldest)
+            self.storage.insert(self.oldest, item)
+            self.oldest += 1
+            print(self.oldest)
         else:
             print("HITTING ELSE")
             self.storage.append(item)

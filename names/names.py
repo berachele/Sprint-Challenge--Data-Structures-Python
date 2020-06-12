@@ -12,6 +12,7 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 names = []
+
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
 #     for name_2 in names_2:
@@ -42,7 +43,7 @@ class BSTNode:
                 self.right.insert(value)
             else:
                 self.right = BSTNode(value)
-    def for_each(self, fn):
+    # def for_each(self, fn):
         fn(self.value)
         if self.left:
             self.left.for_each(fn)
@@ -63,9 +64,9 @@ class BSTNode:
                 return False
 
 for name in names_1:
-    names.append(name)
-for name in names_2:  
-    names.append(name)
+    BSTNode(name)
+# for name in names_2:  
+#     names.append(name)
 for name in names:
     bst = BSTNode(name)
     if bst.contains(name):
