@@ -11,7 +11,8 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
-names = []
+first = []
+second = []
 
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
@@ -20,15 +21,15 @@ names = []
 #             duplicates.append(name_1)
 
 for name_1 in names_1:
-    names.append(name_1)
-name = x
-for x in names:
-    return x
+    first.append(name_1)
+
 for name_2 in names_2:
-    # for name in names:
-    if name == name_2:
-        print(f'HITTING IF')
-        duplicates.append(name)
+    second.append(name_2)
+
+for one in first:
+    for two in second:
+        if one == two:
+            duplicates.append(one)
 
 
 end_time = time.time()
