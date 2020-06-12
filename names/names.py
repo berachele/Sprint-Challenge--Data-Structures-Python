@@ -59,20 +59,14 @@ class BSTNode:
             else:
                 return False
 
-#hahaha record of hitting in 46 seconds 🙈
-
 bst = BSTNode(names_1[0])
-# print(bst)
+
 for name in names_1:
     bst.insert(name)
 
 for name2 in names_2:
     if bst.contains(name2):
-        print('HITTING if')
         duplicates.append(name)
-
-# for name in names_2:
-#     if bst.contains(name):
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
